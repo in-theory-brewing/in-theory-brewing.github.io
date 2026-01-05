@@ -52,12 +52,14 @@ main {
     padding: 2rem;
 }
 
-/* Header with Brushstroke */
+/* Header with Two Rows */
 header {
     position: relative;
     margin-bottom: 3rem;
-    padding: 2rem;
+    padding: 0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 header::after {
@@ -78,16 +80,57 @@ header::after {
 header h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    color: var(--brew-dark);
+    color: var(--brew-cream);
     letter-spacing: 0.02em;
     margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 0 rgba(212, 165, 116, 0.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     font-family: "Georgia", serif;
+}
+
+/* Header Logo Row - Split Background with Menu */
+.header-logo-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.header-logo-cell {
+    width: 100%;
+    background: black;
+}
+
+/* Site Logo */
+.site-logo {
+    width: 90%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
+    position: relative;
+    margin-left: -10px;
+}
+
+/* Header Image Row */
+.header-image-row {
+    width: 100%;
+    overflow: hidden;
+    display: block;
+}
+
+.header-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: -5px;
 }
 
 /* Navigation Menu */
 nav {
-    margin-top: 1.5rem;
+    margin: 0;
+    width: 100%;
+    transform: skewY(-10deg);
+    z-index: 1000;
+    height: 0;
 }
 
 nav ul {
@@ -104,9 +147,9 @@ nav li {
 }
 
 nav a {
-    color: var(--brew-brown);
+    color: var(--brew-cream);
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.6rem;
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -114,6 +157,7 @@ nav a {
     position: relative;
     display: inline-block;
     transition: color 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 /* Brushstroke Underline Effect on Hover */
@@ -144,7 +188,7 @@ nav a:focus::before {
 }
 
 nav a:hover {
-    color: var(--brew-dark);
+    color: var(--brew-gold);
 }
 
 /* Content Links */
@@ -391,17 +435,71 @@ pre code {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+    .header-logo-row {
+        padding: 1.5rem;
+    }
+
     header h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
+    }
+
+    .site-logo {
+        max-width: 400px;
+        width: 85%;
+        left: -200px;
     }
 
     nav ul {
-        gap: 1.5rem;
+        gap: 3rem;
     }
 
     nav a {
         font-size: 1rem;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    header {
+        margin-bottom: 2rem;
+    }
+
+    .header-logo-row {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .site-logo {
+        max-width: 350px;
+        width: 80%;
+        left: -150px;
+    }
+
+    header::after {
+        width: 90%;
+        height: 10px;
+    }
+
+    nav ul {
+        gap: 1.5rem;
+        flex-direction: row;
+    }
+
+    nav a {
+        font-size: 0.95rem;
+        padding: 0.4rem 0;
+    }
+
+    nav a::before {
+        height: 120px;
+        left: -10px;
+        width: 180%;
     }
 
     section {
@@ -414,6 +512,92 @@ pre code {
 
     main {
         padding: 1rem;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    header {
+        margin-bottom: 1.5rem;
+    }
+
+    .header-logo-row {
+        padding: 1.5rem 0.5rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .site-logo {
+        max-width: 280px;
+        width: 85%;
+        left: -100px;
+    }
+
+    header::after {
+        width: 95%;
+        height: 8px;
+        bottom: -0.75rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+        display: block;
+    }
+
+    nav a::before {
+        height: 100px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%) scaleX(0);
+        width: 100%;
+    }
+
+    nav a:hover::before,
+    nav a:focus::before {
+        transform: translateX(-50%) translateY(-50%) scaleX(1);
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    main {
+        padding: 0.5rem;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 360px) {
+    .header-logo-row {
+        padding: 1rem 0.5rem;
+    }
+
+    header h1 {
+        font-size: 1.75rem;
+    }
+
+    .site-logo {
+        max-width: 240px;
+        width: 90%;
+        left: -80px;
+    }
+
+    nav a {
+        font-size: 0.85rem;
     }
 }
 

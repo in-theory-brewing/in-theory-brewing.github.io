@@ -29,12 +29,6 @@
       const scrolled = window.pageYOffset;
       const header = document.querySelector("header");
       const footer = document.querySelector("footer");
-      if (header) {
-        const headerBrush = header.querySelector("::after");
-        if (scrolled > 10) {
-          header.style.transform = `translateY(${scrolled * 0.1}px)`;
-        }
-      }
       ticking = false;
     }
     window.addEventListener("scroll", function() {

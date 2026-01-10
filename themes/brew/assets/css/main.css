@@ -101,6 +101,8 @@ header h1 {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    position: relative;
+    border-bottom-right-radius: 305px;
 }
 
 .header-logo-inner-cell {

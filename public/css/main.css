@@ -317,35 +317,54 @@ h3 {
 
 /* Sections */
 section {
-    margin-bottom: 3.5rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 4px;
+    margin-bottom: 0;
+    padding: 2rem 2rem 5rem 2rem;
+    background: transparent;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
-section::before {
+/* Alternating backgrounds */
+section:nth-child(even) {
+    background: black;
+    color: var(--brew-cream);
+}
+
+section:nth-child(even) h1,
+section:nth-child(even) h2,
+section:nth-child(even) h3,
+section:nth-child(even) h4,
+section:nth-child(even) h5,
+section:nth-child(even) h6 {
+    color: var(--brew-cream);
+}
+
+section:nth-child(even) a {
+    color: var(--brew-amber);
+}
+
+section:nth-child(even) a:hover {
+    color: var(--brew-gold);
+}
+
+/* Bottom divider for all sections */
+section::after {
     content: "";
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background: linear-gradient(
-        to right,
-        transparent 0%,
-        var(--brew-amber) 20%,
-        var(--brew-gold) 50%,
-        var(--brew-amber) 80%,
-        transparent 100%
-    );
-    opacity: 0.5;
+    height: 75px;
+    background-image: url("/images/header6.3.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    transform: translateY(100%);
 }
 
-section:hover::before {
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+/* Flip horizontally for odd sections */
+section:nth-child(odd)::after {
+    transform: translateY(100%) scaleX(-1);
 }
 
 /* Paragraphs */
@@ -524,8 +543,8 @@ pre code {
     }
 
     section {
-        padding: 1.8rem;
-        margin-bottom: 3rem;
+        padding: 1.8rem 1.8rem 4rem 1.8rem;
+        margin-bottom: 0;
     }
 
     main {
@@ -618,8 +637,12 @@ pre code {
     }
 
     section {
-        padding: 1.5rem;
-        margin-bottom: 2.5rem;
+        padding: 1.5rem 1.5rem 4rem 1.5rem;
+        margin-bottom: 0;
+    }
+
+    section::after {
+        height: 60px;
     }
 
     main {
@@ -740,8 +763,12 @@ pre code {
     }
 
     section {
-        padding: 1.2rem;
-        margin-bottom: 2rem;
+        padding: 1.2rem 1.2rem 3.5rem 1.2rem;
+        margin-bottom: 0;
+    }
+
+    section::after {
+        height: 50px;
     }
 
     main {
@@ -854,8 +881,12 @@ pre code {
     }
 
     section {
-        padding: 1rem;
-        margin-bottom: 1.5rem;
+        padding: 1rem 1rem 3rem 1rem;
+        margin-bottom: 0;
+    }
+
+    section::after {
+        height: 40px;
     }
 
     main {

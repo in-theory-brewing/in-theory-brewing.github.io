@@ -1,5 +1,20 @@
 /* Brewery Brushstroke Theme - Main Stylesheet */
 
+/* Google Fonts Import */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap");
+
+/* A Love of Thunder Font */
+@font-face {
+    font-family: "A Love of Thunder";
+    src:
+        url("/fonts/ALoveofThunder.woff2") format("woff2"),
+        url("/fonts/ALoveofThunder.woff") format("woff"),
+        url("/fonts/ALoveofThunder.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --brew-dark: #2c1810;
     --brew-brown: #5d4037;
@@ -34,8 +49,8 @@
 
 body {
     color: var(--brew-text);
-    font-family: "Georgia", "Garamond", serif;
-    line-height: 1.7;
+    font-family: "Playfair Display", "Georgia", "Garamond", serif;
+    font-size: 1.5rem;
     margin: 0;
     background: var(--brew-light);
     background-image:
@@ -80,7 +95,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding: 1rem 2rem;
     gap: 1rem;
 }
@@ -111,10 +126,11 @@ header {
 
 /* Navigation Menu */
 nav {
-    margin-top: 0;
+    margin-top: 4rem;
     margin-bottom: 5rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     transform: skewY(-5deg);
     z-index: 1000;
@@ -124,9 +140,9 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
+    justify-content: center;
     gap: 3rem;
     flex-wrap: wrap;
-    margin-left: 10rem;
 }
 
 nav li {
@@ -143,6 +159,7 @@ nav a {
     text-transform: uppercase;
     padding: 0.5rem 0;
     position: relative;
+    font-family: "Montserrat", sans-serif;
     display: inline-block;
     transition: color 0.3s ease;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
@@ -216,10 +233,20 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--brew-dark);
+    color: var(--brew-copper);
     font-weight: 700;
     line-height: 1.3;
+    letter-spacing: 0.1rem;
+    text-shadow: 1px 1px 0 #000;
     margin-bottom: 1rem;
+    font-family: "A Love of Thunder", "Georgia", serif;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 h2 {
@@ -308,7 +335,8 @@ section:hover::before {
 /* Paragraphs */
 p {
     margin-bottom: 1.2rem;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
 }
 
 /* Footer with Brushstroke */
